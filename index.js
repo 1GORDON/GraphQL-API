@@ -1,8 +1,6 @@
 const { ApolloServer } = require("apollo-server");
 const mongoose = require("mongoose");
-
-const MONGODB_URL =
-  "mongodb+srv://godanah:godanah1122@albania-info.pt2sqvc.mongodb.net/?retryWrites=true&w=majority";
+const MONGODB_URL = require("./mongoUrl");
 
 const typeDefs = require("./graphql/typeDefs");
 const resolvers = require("./graphql/resolvers");
@@ -11,10 +9,6 @@ const server = new ApolloServer({
   typeDefs,
   resolvers,
 });
-
-// server.listen({ port: 5000 }).then(({ url }) => {
-//   console.log(`🚀  Server ready at ${url}`);
-// });
 
 mongoose
   .connect(MONGODB_URL, { useNewUrlParser: true, useUnifiedTopology: true })
