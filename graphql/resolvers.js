@@ -24,11 +24,11 @@ module.exports = {
         ...result._doc,
       };
     },
-    async deleteRecipe() {
-      const wasDeleted = (await Recipe.deleteOne({ _id: ID })).deleteCount;
+    async deleteRecipe(_, { ID }) {
+      const wasDeleted = (await Recipe.deleteOne({ _id: ID })).deletedCount;
       return wasDeleted;
     },
-    async editRecipe() {
+    async editRecipe(_, { ID, recipeInput: { name, description } }) {
       const wasEdited = (
         await Recipe.updateOne(
           { _id: ID },

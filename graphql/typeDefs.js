@@ -18,13 +18,13 @@ module.exports = gql`
   }
 
   type Query {
-    readRecipe(id: ID!): Recipe!
+    readRecipe(ID: ID!): Recipe!
     getRecipe(amount: Int): [Recipe]
   }
 
   type Mutation {
     createRecipe(recipeInput: RecipeInput): Recipe!
-    deleteRecipe(id: ID!): Boolean
-    editRecipe(id: ID!, recipeInput: RecipeInput): Boolean
+    deleteRecipe(ID: ID!): Boolean
+    editRecipe(ID: ID!, recipeInput: RecipeInput): Boolean
   }
 `;
